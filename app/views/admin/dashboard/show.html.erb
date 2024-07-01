@@ -1,7 +1,11 @@
 <h1>Admin: Dashboard</h1>
 
-<h4>Total Products: </h4>
-<p><%= @total_products %></p>
+<h4>Total Products: 
+  <small class="text-muted"><%= @total_products %></small>
+</h4>
 
-<h4>Total Catagories: </h4>
-<p><%= @total_catagories %></p>
+<h4>Total Catagories:
+  <small class="text-muted"><%= @total_catagories %></small>
+</h4>
+
+<%= link_to "View All Products", [:admin, :products], class: "link-success"%>
