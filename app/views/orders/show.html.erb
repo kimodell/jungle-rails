@@ -5,7 +5,8 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h3>Thank you for your order!</h3>
+    <p>The new additions to your jungle are on their way!</p>
   </div>
 
     <div class="panel panel-default items">
@@ -37,7 +38,10 @@
 
     </table>
   </div>
- 
+  
+  <div>
+  <p>A confrimation email as been sent to <%= @order.email %>!</p>
+  </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
