@@ -4,6 +4,17 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if enhanced_cart.length == 0 %>
+    <div>
+      <div class="alert alert-success" role="alert">
+        Your cart is lonely!
+      </div>
+      <div>
+        <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+      </div>
+    </div>
+  <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +59,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
