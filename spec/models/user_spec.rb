@@ -48,7 +48,35 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    # examples for this class method here
+    
+    it "should return nil if the email is incoorrect" do
+      user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
+      auth_user = User.authenticate_with_credentials("bagendboy@shire.com", "dragons35")
+      expect(auth_user).to eql(nil)
+    end
+    
+    it "should returns nil if the password is incorrect" do
+      user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
+      auth_user = User.authenticate_with_credentials("bagend@shire.com", "gandalf35")
+      expect(auth_user).to eql(nil)
+    end
+    it "should sign user in if login email contains whitespace before/after" do
+      user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
+      auth_user = User.authenticate_with_credentials(" bagend@shire.com  ", "dragons35")
+      expect(auth_user).to eql(@user)
+    end
+    
+    it "should sign user in regardless of email caseing" do
+      user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
+      auth_user = User.authenticate_with_credentials("bagEND@shire.com", "dragons35")
+      expect(auth_user).to eql(@user)
+    end
+
+    it "should sign user in if login info is valid" do
+      user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
+      auth_user = User.authenticate_with_credentials("bagend@shire.com", "dragons35")
+      expect(auth_user).to eql(@user)
+    end
   end
 
 end
