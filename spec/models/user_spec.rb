@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
     
-    it "should return nil if the email is incoorrect" do
+    it "should return nil if the email is incorrect" do
       user = User.new(first_name: "Bilbo", last_name: "Baggins", email: "bagend@shire.com", password: "dragons35", password_confirmation: "dragons35")
       auth_user = User.authenticate_with_credentials("bagendboy@shire.com", "dragons35")
       expect(auth_user).to eql(nil)
