@@ -1,6 +1,8 @@
-# Jungle
+# Jungle :seedling:
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 6.1. 
+
+Jungle was created as a Ruby based project for the web development program at [Lighthouse Labs](https://github.com/lighthouse-labs).
 
 ## Setup
 
